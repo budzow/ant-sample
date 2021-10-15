@@ -9,7 +9,24 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+
+
 steps:
+
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'SQ8'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'ant-sample'
+    cliProjectName: 'ant-sample'
+    cliSources: 'src'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner, 
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.java.binaries=build
+      sonar.java.libraries=lib/*.jar
 - task: Ant@1
   inputs:
     buildFile: 'build.xml'
@@ -19,3 +36,5 @@ steps:
     testResultsFiles: '**/TEST-*.xml'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
+
+- task: SonarQubeAnalyze@4
