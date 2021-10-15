@@ -9,6 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+- name: AGENT_USE_NODE10
+  value: true
 
 
 steps:
