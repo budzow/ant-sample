@@ -41,6 +41,6 @@ steps:
 
 - task: CmdLine@2
   inputs:
-    script: 'sudo update-alternatives --config java'
+    script: 'set JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64'
 
 - task: SonarQubeAnalyze@4
