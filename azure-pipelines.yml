@@ -41,8 +41,8 @@ steps:
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '1.8'
 
-- task: CmdLine@2
-  inputs:
-    script: 'export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64'
+#- task: CmdLine@2
+#  inputs:
+#    script: 'export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64'
 
 - task: SonarQubeAnalyze@4
