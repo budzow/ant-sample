@@ -51,9 +51,12 @@ steps:
       $jdkPath = $env:SPECIFIC_JDK
       Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
 
-
-- task: CmdLine@2
+- task: PowerShell@2
   inputs:
-    script: 'java -version'
+    targetType: 'inline'
+    script: |
+      # Write your PowerShell commands here.
+      java -version
+      Write-Host "Hello World"
 
 - task: SonarQubeAnalyze@4
