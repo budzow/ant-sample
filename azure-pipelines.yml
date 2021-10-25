@@ -17,8 +17,8 @@ pool:
 variables:
 - name: AGENT_USE_NODE10
   value: true
-- name: JAVA_HOME
-  value: C:\Program Files\Java\jdk1.8.0_181
+#- name: JAVA_HOME
+#  value: C:\Program Files\Java\jdk1.8.0_181
 
 steps:
 
@@ -37,5 +37,16 @@ steps:
       sonar.java.binaries=.
       # sonar.java.libraries=lib/*.jar
 
+- task: CmdLine@2
+  inputs:
+    script: 'java -version'
+
+- task: PowerShell@2
+  displayName: "Use JDK11 by default"
+  inputs:
+    targetType: 'inline'
+    script: |
+      $jdkPath = C:\Program Files\Java\jdk1.8.0_181
+      Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
 
 - task: SonarQubeAnalyze@4
