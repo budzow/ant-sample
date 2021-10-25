@@ -12,7 +12,7 @@ trigger:
 pool:
       name: Default
       Demands:
-      - agent.name -equals "michal-centos-w"
+      - agent.name -equals "michVS2019"
 
 variables:
 - name: AGENT_USE_NODE10
@@ -34,7 +34,7 @@ steps:
       # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
-      sonar.java.binaries=build
+      sonar.java.binaries=.
       # sonar.java.libraries=lib/*.jar
 
 
