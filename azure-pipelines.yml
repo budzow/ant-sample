@@ -17,8 +17,8 @@ pool:
 variables:
 - name: AGENT_USE_NODE10
   value: true
-#- name: JAVA_HOME
-#  value: C:\Program Files\Java\jdk1.8.0_181
+- name: SPECIFIC_JDK
+  value: C:\Program Files\Java\jdk-16.0.2
 
 steps:
 
@@ -42,11 +42,17 @@ steps:
     script: 'java -version'
 
 - task: PowerShell@2
-  displayName: "Use JDK11 by default"
+  displayName: "Use specific JDK by default"
   inputs:
     targetType: 'inline'
     script: |
-      $jdkPath = "C:\Program Files\Java\jdk1.8.0_181"
+      #$jdkPath = "C:\Program Files\Java\jdk1.8.0_181"
+      $jdkPath = $env:SPECIFIC_JDK
       Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
+
+
+- task: CmdLine@2
+  inputs:
+    script: 'java -version'
 
 - task: SonarQubeAnalyze@4
