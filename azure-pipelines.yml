@@ -45,4 +45,10 @@ steps:
 #  inputs:
 #    script: 'export JAVA_HOME=/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64'
 
+- task: JavaToolInstaller@0
+  inputs:
+    versionSpec: '8'
+    jdkArchitectureOption: 'x64'
+    jdkSourceOption: 'PreInstalled'
+
 - task: SonarQubeAnalyze@4
