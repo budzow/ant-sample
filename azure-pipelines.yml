@@ -17,8 +17,8 @@ pool:
 variables:
 - name: AGENT_USE_NODE10
   value: true
-#- name: JAVA_HOME_11_X64
-#  value: /usr/lib/jvm/adoptopenjdk-8-hotspot-amd64
+- name: JAVA_HOME_11_X64
+  value: /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el7_9.x86_64
 
 steps:
 
