@@ -46,7 +46,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $jdkPath = C:\Program Files\Java\jdk1.8.0_181
+      $jdkPath = "C:\Program Files\Java\jdk1.8.0_181"
       Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
 
 - task: SonarQubeAnalyze@4
