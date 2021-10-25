@@ -6,8 +6,13 @@
 trigger:
 - master
 
+#pool:
+#  vmImage: ubuntu-latest
+
 pool:
-  vmImage: ubuntu-latest
+      name: Default
+      Demands:
+      - agent.name -equals "michal-centos-w"
 
 variables:
 - name: AGENT_USE_NODE10
@@ -31,15 +36,6 @@ steps:
       # sonar.exclusions=**/*.bin
       sonar.java.binaries=build
       # sonar.java.libraries=lib/*.jar
-- task: Ant@1
-  inputs:
-    buildFile: 'build.xml'
-    options: 
-    targets: 'clean build'
-    publishJUnitResults: true
-    testResultsFiles: '**/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
 
 
 - task: SonarQubeAnalyze@4
