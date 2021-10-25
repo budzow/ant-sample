@@ -18,7 +18,8 @@ variables:
 - name: AGENT_USE_NODE10
   value: true
 - name: SPECIFIC_JDK
-  value: C:\Program Files\Java\jdk-16.0.2
+#  value: C:\Program Files\Java\jdk-16.0.2
+  value: C:\Program Files\Java\jdk-11.0.12
 
 steps:
 
