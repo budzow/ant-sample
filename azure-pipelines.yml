@@ -24,7 +24,7 @@ steps:
 
 - task: SonarQubePrepare@4
   inputs:
-    SonarQube: 'SQ8'
+    SonarQube: 'SQ9'
     scannerMode: 'CLI'
     configMode: 'manual'
     cliProjectKey: 'ant-sample'
